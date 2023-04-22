@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    background-color: hotpink;
+    display: flex;
+    
+}
+
+header{
+    height: 89px;
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    
+ 
+    padding-left: 80px;
+    background-color:#404EED;
+    display: flex;
+    align-items: center;
+}
+.container{
+    width: 100%;
+}
+.main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+ 
+    width: 100%;
+    
+}
+.box-left{
+    background-color: #E5E5E5;
+}
+.img-fashion{
+    background-color: #404EED;
+}
+
+.img-fashion,.box-left{
+   
+    width:50%;
+    height:785px;
+    margin-top: 89px;
+}
+footer{
+    height:342px;
+    width: 100%;
+ 
+    margin-left: 0;
+    bottom: 0;
+    background-color: chartreuse;
+}
