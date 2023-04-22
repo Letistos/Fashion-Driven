@@ -35,15 +35,22 @@ header{
 .box-left{
     background-color: #E5E5E5;
 }
-.img-fashion{
+.box-fashion{
     background-color: #404EED;
 }
 
-.img-fashion,.box-left{
+.box-fashion,.box-left{
    
     width:50%;
     height:785px;
     margin-top: 89px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-fashion{
+    height: 669px;
+    width:auto;
 }
 footer{
     height:342px;
