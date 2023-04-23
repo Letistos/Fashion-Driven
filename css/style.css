@@ -118,6 +118,10 @@ button,input{
     border-radius: 10px;
     border:none;
 }
+.habilitado{
+    background-color: #404EED;
+
+}
 input{
    color:#818181;
    background-color: #F2F2F2;
@@ -143,7 +147,7 @@ footer{
     
 }
 .camiseta-ultimo{
-    width:180px;
+    width:auto;
     height:180px;
     margin-bottom: 10px;
 
