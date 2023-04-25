@@ -70,7 +70,8 @@ h1{
 }
 .selecionado{
     border: solid 3px #404EED;
-    border-radius: 50px;   
+    border-radius: 50px;  
+    position: relative;
 }
 .botoes,.box-opcao,.opcao,.box-fashion,.box-left, .pedidos-box,footer, .main-footer{
     display: flex;
@@ -110,7 +111,7 @@ input,button{
 }
 button,input{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    weight:400;
+    font-weight:400;
     font-size:20px;
     line-height:23.44px;
     color:#FCFCFC;

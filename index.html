@@ -35,7 +35,7 @@
 
 
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionar(this)" class="opcao roupa">
                                     <img class="icone" src="./img/tshirt.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionar(this)" class="opcao roupa">
                                     <img class="icone" src="./img/Camiseta.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionar(this)" class="opcao roupa">
                                     <img class="icone" src="./img/Mangalonga.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -63,23 +63,23 @@
 
                     </div>
 
-                    <div class="box-modelo">
+                    <div class="box-modelo ">
 
                         <div class="texto">
                             <h1>Escolha a gola </h1>
                         </div>
 
-                        <div class="modelo">
+                        <div class="modelo gola">
                             
                              <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionarOpcao(this)" class="opcao">
                                     <img class="icone" src="./img/GolaV.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
                                 <h1>Gola V</h1>
                             </div>
 
-                            <div class="box-opcao">
+                            <div onclick="selecionarOpcao(this)" class="box-opcao">
                                 <div class="opcao">
                                     <img class="icone" src="./img/GolaRedonda.png" alt="imagem camiseta gola redonda"/>
                                     
@@ -87,7 +87,7 @@
                                 <h1>Gola Redonda</h1>
                             </div>
                             
-                            <div class="box-opcao">
+                            <div onclick="selecionarOpcao(this)" class="box-opcao">
                                 <div class="opcao">
                                     <img class="icone" src="./img/GolaPolo.png" alt="imagem camiseta gola redonda"/>
                                     
@@ -102,13 +102,13 @@
                     <div class="box-modelo">
 
                         <div class="texto">
-                            <h1>Escolha o modelo</h1>
+                            <h1>Escolha o tecido</h1>
                         </div>
 
-                        <div class="modelo">
+                        <div class="modelo tecido">
                             
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionarOpcao()" class="opcao">
                                     <img class="img-tecido" src="./img/Seda.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -116,7 +116,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionarOpcao()" class="opcao">
                                     <img class="img-tecido" src="./img/Algodão.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -124,7 +124,7 @@
                             </div>
                             
                             <div class="box-opcao">
-                                <div class="opcao">
+                                <div onclick="selecionarOpcao()" class="opcao">
                                     <img class="img-tecido" src="./img/Poliester.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -139,8 +139,8 @@
                         <div class="texto-botoes">
                         <h1>Imagem de referência</h1>
                         </div>
-                        <input type="text" placeholder="Insira o link"></input>
-                        <button disabled>Confirmar pedido</button>
+                        <input type="text" class="link" placeholder="Insira o link"></input>
+                        <button onclick="imgReferencia ()" >Confirmar pedido</button>
                     </div>
                 </div>
                 <div class="box-fashion azul-fashion">
