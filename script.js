@@ -14,54 +14,59 @@ const selecioneiCamiseta = document.querySelectorAll('.roupa')
         camiseta.classList.add('selecionado');
     
     console.log(camiseta);
+
+    shirt = 1;
+
+    return shirt
 }
 
 function selecionaGola(gola){
 
     const selecioneiGola = document.querySelectorAll('.neck')
     
-        for(i=0; i< selecioneiGola.length; i++){
+    for(i=0; i< selecioneiGola.length; i++){
     
-            selecioneiGola[i].classList.remove('selecionado')
+        selecioneiGola[i].classList.remove('selecionado')
             
-        }
-            gola.classList.add('selecionado');
-        
-        console.log(gola);
     }
-
-function selecionaGola(gola){
-
-    const selecioneiGola = document.querySelectorAll('.neck')
+    gola.classList.add('selecionado');
         
-        for(i=0; i< selecioneiGola.length; i++){
-        
-            selecioneiGola[i].classList.remove('selecionado')
-                
-        }
-            gola.classList.add('selecionado');
-            
-            console.log(gola);
-        }
+    console.log(gola);
+
+    
+}
 
 function selecionaTecido(fabric){
 
     const selecioneiTecido = document.querySelectorAll('.pano')
             
-        for(i=0; i< selecioneiTecido.length; i++){
+    for(i=0; i< selecioneiTecido.length; i++){
             
-            selecioneiTecido[i].classList.remove('selecionado')
+        selecioneiTecido[i].classList.remove('selecionado')
                     
-        }
-            fabric.classList.add('selecionado');
+    }
+    fabric.classList.add('selecionado');
                 
-            console.log(fabric);
-            }
-//function confirmaBotao()
+}
+
+
+function confirmaBotao(){
+    let botoes = document.querySelectorAll('.selecionado')
+    console.log(botoes);   
+
+    if(botoes.length === 3){
+        let liberarBotao = document.querySelector('.botaoFinal')
+        liberarBotao.removeAttribute('disabled');
+        liberarBotao.classList.add('habilitado');
+    }
+}
+confirmaBotao();
 
 function imgReferencia (){
 
-    const input = document.querySelector('.link').target.value;
-   // linkref = input.innerHTML.value;
+    const input = document.querySelector('.link').value;
+    
     console.log(input);
 }
+
+

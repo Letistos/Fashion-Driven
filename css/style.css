@@ -95,9 +95,9 @@ h1{
     flex-direction: column;
     
 }
-input,button{
-    width:396.27px;
-    height:40px;
+button:hover{
+    cursor:not-allowed;
+    
 }
 .botoes{
    
@@ -118,10 +118,14 @@ button,input{
     background-color: #C4C4C4;
     border-radius: 10px;
     border:none;
+    width:396.27px;
+    height:40px;
 }
 .habilitado{
     background-color: #404EED;
-
+}
+.habilitado:hover{
+    cursor:pointer;
 }
 input{
    color:#818181;

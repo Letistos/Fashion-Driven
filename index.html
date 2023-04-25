@@ -35,7 +35,7 @@
 
 
                             <div class="box-opcao">
-                                <div onclick="selecionarModelo(this)" class="opcao roupa">
+                                <div onclick="selecionarModelo(this); confirmaBotao(this)" class="opcao roupa">
                                     <img class="icone" src="./img/tshirt.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div onclick="selecionarModelo(this)" class="opcao roupa">
+                                <div onclick="selecionarModelo(this); confirmaBotao(this)" class="opcao roupa">
                                     <img class="icone" src="./img/Camiseta.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div onclick="selecionarModelo(this)" class="opcao roupa">
+                                <div onclick="selecionarModelo(this); confirmaBotao(this)" class="opcao roupa">
                                     <img class="icone" src="./img/Mangalonga.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -63,7 +63,7 @@
 
                     </div>
 
-                    <div class="box-modelo ">
+                    <div class="box-modelo">
 
                         <div class="texto">
                             <h1>Escolha a gola </h1>
@@ -72,7 +72,7 @@
                         <div class="modelo gola">
                             
                              <div class="box-opcao">
-                                <div onclick="selecionaGola(this)" class="opcao neck">
+                                <div onclick="selecionaGola(this); confirmaBotao(this)" class="opcao neck">
                                     <img class="icone" src="./img/GolaV.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -80,7 +80,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div onclick="selecionaGola(this)"  class="opcao neck">
+                                <div onclick="selecionaGola(this); confirmaBotao(this)"  class="opcao neck">
                                     <img class="icone" src="./img/GolaRedonda.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -88,7 +88,7 @@
                             </div>
                             
                             <div class="box-opcao">
-                                <div onclick="selecionaGola(this)" class="opcao  neck">
+                                <div onclick="selecionaGola(this); confirmaBotao(this)" class="opcao  neck">
                                     <img class="icone" src="./img/GolaPolo.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -108,7 +108,7 @@
                         <div class="modelo tecido">
                             
                             <div class="box-opcao">
-                                <div onclick="selecionaTecido(this)" class="opcao pano">
+                                <div onclick="selecionaTecido(this); confirmaBotao(this)" class="opcao pano">
                                     <img class="img-tecido" src="./img/Seda.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -116,7 +116,7 @@
                             </div>
 
                             <div class="box-opcao">
-                                <div onclick="selecionaTecido(this)" class="opcao pano">
+                                <div onclick="selecionaTecido(this); confirmaBotao(this)" class="opcao pano">
                                     <img class="img-tecido" src="./img/Algodão.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -124,7 +124,7 @@
                             </div>
                             
                             <div class="box-opcao">
-                                <div onclick="selecionaTecido(this)" class="opcao pano">
+                                <div onclick="selecionaTecido(this); confirmaBotao(this)" class="opcao pano">
                                     <img class="img-tecido" src="./img/Poliester.png" alt="imagem camiseta gola redonda"/>
                                     
                                 </div>
@@ -140,7 +140,7 @@
                         <h1>Imagem de referência</h1>
                         </div>
                         <input type="text" class="link" placeholder="Insira o link"></input>
-                        <button onclick="imgReferencia ()" >Confirmar pedido</button>
+                        <button onclick="imgReferencia ()" disabled class="botaoFinal">Confirmar pedido</button>
                     </div>
                 </div>
                 <div class="box-fashion azul-fashion">
