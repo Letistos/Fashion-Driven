@@ -1,7 +1,8 @@
+axios.defaults.headers.common['Authorization'] = '5MH3GBE7JWFZU8b8ft1wY2FM';
 const nome = prompt("qual seu nome?");
 console.log(nome);
 let objeto = { }
-
+const url = 'https://mock-api.driven.com.br/api/v4/shirts-api/shirts';
 
 function selecionarModelo(camiseta,marcadorModelo){
 
@@ -80,4 +81,9 @@ function adicionaNome(){
 }
 adicionaNome();
 
+const requisicao = axios.post(url, objeto);
+requisicao.then(processarResposta)
+function processarResposta(resposta){
+	console.log(resposta.data);
+}
 
