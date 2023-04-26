@@ -1,8 +1,9 @@
 const nome = prompt("qual seu nome?");
 console.log(nome);
+let objeto = { }
 
 
-function selecionarModelo(camiseta){
+function selecionarModelo(camiseta,marcadorModelo){
 
 const selecioneiCamiseta = document.querySelectorAll('.roupa')
 
@@ -13,14 +14,11 @@ const selecioneiCamiseta = document.querySelectorAll('.roupa')
     }
         camiseta.classList.add('selecionado');
     
-    console.log(camiseta);
-
-    shirt = 1;
-
-    return shirt
+    objeto.model = marcadorModelo;
+    console.log(objeto)
 }
 
-function selecionaGola(gola){
+function selecionaGola(gola,marcadorGola){
 
     const selecioneiGola = document.querySelectorAll('.neck')
     
@@ -30,13 +28,14 @@ function selecionaGola(gola){
             
     }
     gola.classList.add('selecionado');
+    objeto.neck = marcadorGola;
         
-    console.log(gola);
+    console.log(objeto);
 
     
 }
 
-function selecionaTecido(fabric){
+function selecionaTecido(fabric,marcadorTecido){
 
     const selecioneiTecido = document.querySelectorAll('.pano')
             
@@ -46,6 +45,9 @@ function selecionaTecido(fabric){
                     
     }
     fabric.classList.add('selecionado');
+    objeto.material = marcadorTecido;
+        
+    console.log(objeto);
                 
 }
 
@@ -62,11 +64,20 @@ function confirmaBotao(){
 }
 confirmaBotao();
 
-function imgReferencia (){
+function imgReferencia (link){
 
     const input = document.querySelector('.link').value;
+    objeto.image = input;
     
-    console.log(input);
+    console.log(objeto);
 }
+
+
+function adicionaNome(){
+
+    objeto.author = nome;
+    console.log(objeto);   
+}
+adicionaNome();
 
 
