@@ -81,9 +81,32 @@ function adicionaNome(){
 }
 adicionaNome();
 
-const requisicao = axios.post(url, objeto);
-requisicao.then(processarResposta)
-function processarResposta(resposta){
-	console.log(resposta.data);
+
+let pedidosTela = "";
+
+const promise = axios.get(url);
+promise.then(processarResposta);
+
+function processarResposta(resposta) {
+
+    for(let i = 0; i < resposta.length; i++) {
+
+        pedidosTela += `<div class="pedidos-box"> <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].img} /> <p><strong>Criador:</strong> ${resposta.author}</p> </div>`;
+        let caixa = document.querySelector(".main-footer");
+        console.log(caixaFooter)
+        caixa.innerHTML = pedidosTela;
+
+    }
+
 }
+
+
+//function enviarObjeto(){
+
+ //   const dados = {...};
+  // const requisicao = axios.post('http://...', dados);
+
+//}
+
+
 
