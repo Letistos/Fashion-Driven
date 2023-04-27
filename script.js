@@ -61,7 +61,17 @@ function confirmaBotao(){
         let liberarBotao = document.querySelector('.botaoFinal')
         liberarBotao.removeAttribute('disabled');
         liberarBotao.classList.add('habilitado');
+        //objeto.owner = "abcd"
     }
+  
+
+    
+}
+function postarErro(){
+
+ alert('Ops, não conseguimos processar sua encomenda')
+    
+
 }
 confirmaBotao();
 
@@ -71,6 +81,10 @@ function imgReferencia (link){
     objeto.image = input;
     
     console.log(objeto);
+
+    const postPromise = axios.post(url,objeto);
+    postPromise.then((response)=>postarObjeto(response))
+    postPromise.catch(postarErro())
 }
 
 
@@ -82,31 +96,28 @@ function adicionaNome(){
 adicionaNome();
 
 
-let pedidosTela = "";
 
-const promise = axios.get(url);
-promise.then(processarResposta);
+    console.log(url)
+    const promise = axios.get(url);
+    promise.then((response) => modificaFooter(response.data))
 
-function processarResposta(resposta) {
-
-    for(let i = 0; i < resposta.length; i++) {
-
-        pedidosTela += `<div class="pedidos-box"> <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].img} /> <p><strong>Criador:</strong> ${resposta.author}</p> </div>`;
-        let caixa = document.querySelector(".main-footer");
-        console.log(caixaFooter)
-        caixa.innerHTML = pedidosTela;
-
+function modificaFooter (resposta) {
+    console.log(resposta)
+    
+    let pedidosTela = "";
+    
+    for(let i =0; i < resposta.length; i++){
+        pedidosTela += `<div class="pedidos-box"> <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
     }
-
+    let caixa = document.querySelector(".main-footer");
+    caixa.innerHTML = pedidosTela;
+    console.log(caixa)
 }
+
+//processarResposta();
 
 
 //function enviarObjeto(){
 
  //   const dados = {...};
   // const requisicao = axios.post('http://...', dados);
-
-//}
-
-
-
