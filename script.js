@@ -132,7 +132,7 @@ function modificaFooter (resposta) {
         <p><strong>Criador:</strong> ${resposta[i].owner}</p>
         </div>`;
     }
-    
+
     let caixa = document.querySelector(".main-footer");
     caixa.innerHTML = pedidosTela;
     
@@ -143,16 +143,22 @@ function modificaFooter (resposta) {
 
 function encomendarDoUltimo(i){
 
-/// let objDoUltimos = {image: img, material:tipoTecido, neck:tipoGola , model:tipoModelo, owner:dono, author: nome}
+    
+    if( confirm('confirma a encomenda desssa camiseta?') === true){
         
     console.log(lista[i]);
-   //const novaPromise = axios.post(url,objDoUltimos);
-    //novaPromise.then((respostaPost) => novoPost(respostaPost))
-
- //  if(objeto.status === '422'){
- //  novaPromise.catch(postarErro())
- //   }
+    lista[i].author = nome;
+    delete lista[i].id;
+    console.log(lista);
+    
+    const postPromise = axios.post(url,lista[i]);
+    postPromise.then((resposta) => postarObjeto(resposta))
+    if(objeto.status === '422'){
+    postPromise.catch(postarErro())
+    }   
+    }
+    else{
+        alert('você pode escolher outro modelo, ou criar o seu!')
+    }
 }
-//function novoPost(postou){
-   // console.log('oioi')
-//}
+
