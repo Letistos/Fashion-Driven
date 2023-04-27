@@ -122,7 +122,7 @@ function modificaFooter (resposta) {
     let pedidosTela = "";
     
     for(let i =0; i < resposta.length; i++){
-        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo(resposta.image, resposta.material,resposta.neck, resposta.model, resposta.owner)">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
+        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo(${resposta[i].image}, ${resposta[i].material}, ${resposta[i].neck}, ${resposta[i].model}, ${resposta[i].owner})">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
     }
     let caixa = document.querySelector(".main-footer");
     caixa.innerHTML = pedidosTela;
