@@ -115,35 +115,44 @@ adicionaNome();
     console.log(url)
     const promise = axios.get(url);
     promise.then((response) => modificaFooter(response.data))
+
+    let lista = [];
     
 function modificaFooter (resposta) {
-    console.log(resposta)
+    
+    lista = resposta;
     
     let pedidosTela = "";
-    
+
     for(let i =0; i < resposta.length; i++){
-        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo(${resposta[i].image}, ${resposta[i].material}, ${resposta[i].neck}, ${resposta[i].model}, ${resposta[i].owner})">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p></div>`;
+
+        pedidosTela += `
+        <div class="pedidos-box" onclick="encomendarDoUltimo(${i})">  
+        <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> 
+        <p><strong>Criador:</strong> ${resposta[i].owner}</p>
+        </div>`;
     }
+    
     let caixa = document.querySelector(".main-footer");
     caixa.innerHTML = pedidosTela;
-    console.log(caixa)
+    
 }
 
 
 
 
-function encomendarDoUltimo(img,tipoTecido,tipoGola,tipoModelo,dono){
+function encomendarDoUltimo(i){
 
-    let objDoUltimos = {image: img, material:tipoTecido, neck:tipoGola , model:tipoModelo, owner:dono, author: nome}
+/// let objDoUltimos = {image: img, material:tipoTecido, neck:tipoGola , model:tipoModelo, owner:dono, author: nome}
         
+    console.log(lista[i]);
+   //const novaPromise = axios.post(url,objDoUltimos);
+    //novaPromise.then((respostaPost) => novoPost(respostaPost))
 
-    const novaPromise = axios.post(url,objDoUltimos);
-    novaPromise.then((respostaPost) => novoPost(respostaPost))
-
-    if(objeto.status === '422'){
-    novaPromise.catch(postarErro())
-    }
+ //  if(objeto.status === '422'){
+ //  novaPromise.catch(postarErro())
+ //   }
 }
-function novoPost(postou){
-    console.log('oioi')
-}
+//function novoPost(postou){
+   // console.log('oioi')
+//}
