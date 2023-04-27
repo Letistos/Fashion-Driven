@@ -3,6 +3,7 @@ const nome = prompt("qual seu nome?");
 console.log(nome);
 let objeto = { }
 const url = 'https://mock-api.driven.com.br/api/v4/shirts-api/shirts';
+let contador="";
 
 function selecionarModelo(camiseta,marcadorModelo){
 
@@ -52,15 +53,17 @@ function selecionaTecido(fabric,marcadorTecido){
                 
 }
 
-
-function confirmaBotao(){
+function confirmaBotao(elemento){
     let botoes = document.querySelectorAll('.selecionado')
-    console.log(botoes);   
+    let inputDigitando = document.querySelectorAll('.link').value;
 
-    if(botoes.length === 3){
+    console.log(botoes); 
+
+    if(botoes.length === 3 && elemento === 'teste' ){
         let liberarBotao = document.querySelector('.botaoFinal')
         liberarBotao.removeAttribute('disabled');
         liberarBotao.classList.add('habilitado');
+        objeto.owner = nome;
     }
   
 
@@ -78,19 +81,28 @@ function imgReferencia (link){
 
     const input = document.querySelector('.link').value;
     objeto.image = input;
-    objeto.owner = nome;
+    
     
     console.log(objeto);
 
     const postPromise = axios.post(url,objeto);
-    postPromise.then((response) => postarObjeto(response))
+    postPromise.then((resposta) => postarObjeto(resposta))
+    if(objeto.status === 422){
     postPromise.catch(postarErro())
-}
-function postarObjeto(){
-    console.log('oioi')
+    
 }
 
+}
 
+function postarObjeto(resposta){
+
+    if(objeto.status===201 || objeto.status===403){
+        alert('pedido enviado')
+    }
+    const promise = axios.get(url);
+    promise.then((response) => modificaFooter(response.data))
+
+}
 function adicionaNome(){
 
     objeto.author = nome;
@@ -103,14 +115,14 @@ adicionaNome();
     console.log(url)
     const promise = axios.get(url);
     promise.then((response) => modificaFooter(response.data))
-
+    
 function modificaFooter (resposta) {
     console.log(resposta)
     
     let pedidosTela = "";
     
     for(let i =0; i < resposta.length; i++){
-        pedidosTela += `<div class="pedidos-box"> <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
+        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo()">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
     }
     let caixa = document.querySelector(".main-footer");
     caixa.innerHTML = pedidosTela;
@@ -118,10 +130,18 @@ function modificaFooter (resposta) {
 }
 
 
-//processarResposta();
 
 
-//function enviarObjeto(){
+function encomendarDoUltimo(){
 
- //   const dados = {...};
-  // const requisicao = axios.post('http://...', dados);
+    for(i=0;i<promise.length;i++){
+
+    console.log(promise.data[i]);
+    }
+
+//const postPromise = axios.post(url,objeto);
+ //   postPromise.then((resposta) => postarObjeto(resposta))
+   // if(objeto.status === 422){
+    //postPromise.catch(postarErro())
+//}
+}
