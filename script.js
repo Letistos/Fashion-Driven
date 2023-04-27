@@ -1,23 +1,24 @@
 axios.defaults.headers.common['Authorization'] = '5MH3GBE7JWFZU8b8ft1wY2FM';
-const nome = prompt("qual seu nome?");
-console.log(nome);
-let objeto = { }
+
 const url = 'https://mock-api.driven.com.br/api/v4/shirts-api/shirts';
-let contador="";
+
+const nome = prompt("qual seu nome?");
+
+let objeto = { }
 
 function selecionarModelo(camiseta,marcadorModelo){
 
-const selecioneiCamiseta = document.querySelectorAll('.roupa')
+    const selecioneiCamiseta = document.querySelectorAll('.roupa')
 
     for(i=0; i< selecioneiCamiseta.length; i++){
 
-        selecioneiCamiseta[i].classList.remove('selecionado')
-        
+        selecioneiCamiseta[i].classList.remove('selecionado')  
     }
-        camiseta.classList.add('selecionado');
+    
+    camiseta.classList.add('selecionado');
     
     objeto.model = marcadorModelo;
-    console.log(objeto)
+   
 }
 
 function selecionaGola(gola,marcadorGola){
@@ -26,15 +27,12 @@ function selecionaGola(gola,marcadorGola){
     
     for(i=0; i< selecioneiGola.length; i++){
     
-        selecioneiGola[i].classList.remove('selecionado')
-            
+        selecioneiGola[i].classList.remove('selecionado')            
     }
-    gola.classList.add('selecionado');
-    objeto.neck = marcadorGola;
-        
-    console.log(objeto);
 
-    
+    gola.classList.add('selecionado');
+
+    objeto.neck = marcadorGola;    
 }
 
 function selecionaTecido(fabric,marcadorTecido){
@@ -43,21 +41,21 @@ function selecionaTecido(fabric,marcadorTecido){
             
     for(i=0; i< selecioneiTecido.length; i++){
             
-        selecioneiTecido[i].classList.remove('selecionado')
-                    
+        selecioneiTecido[i].classList.remove('selecionado')                    
     }
+
     fabric.classList.add('selecionado');
+
     objeto.material = marcadorTecido;
-        
-    console.log(objeto);
+   
                 
 }
 
 function confirmaBotao(elemento){
-    let botoes = document.querySelectorAll('.selecionado')
-    let inputDigitando = document.querySelectorAll('.link').value;
 
-    console.log(botoes); 
+    let botoes = document.querySelectorAll('.selecionado')
+
+    let inputDigitando = document.querySelectorAll('.link').value;
 
     if(botoes.length === 3 && elemento === 'teste' ){
         let liberarBotao = document.querySelector('.botaoFinal')
@@ -65,61 +63,52 @@ function confirmaBotao(elemento){
         liberarBotao.classList.add('habilitado');
         objeto.owner = nome;
     }
-  
 
-    
 }
 function postarErro(){
 
  alert('Ops, não conseguimos processar sua encomenda')
-    
 
 }
+
 confirmaBotao();
 
 function imgReferencia (link){
 
     const input = document.querySelector('.link').value;
     objeto.image = input;
-    
-    
-    console.log(objeto);
 
     const postPromise = axios.post(url,objeto);
     postPromise.then((resposta) => postarObjeto(resposta))
+
     if(objeto.status === '422'){
-    postPromise.catch(postarErro())
-    
-}
-
-}
-
-function postarObjeto(resposta){
-
-    if(objeto.status==='201' || objeto.status==='403'){
-        alert('pedido enviado')
+        postPromise.catch(postarErro())    
     }
+}
+
+function postarObjeto(resposta){  
+    
     const promise = axios.get(url);
     promise.then((response) => modificaFooter(response.data))
 
+    alert('pedido enviado');
 }
+
 function adicionaNome(){
 
     objeto.author = nome;
     console.log(objeto);   
 }
+
 adicionaNome();
 
+const promise = axios.get(url);
+promise.then((response) => modificaFooter(response.data))
 
-
-    console.log(url)
-    const promise = axios.get(url);
-    promise.then((response) => modificaFooter(response.data))
-
-    let lista = [];
+let lista = [];
     
-function modificaFooter (resposta) {
-    
+function modificaFooter (resposta) {    
+
     lista = resposta;
     
     let pedidosTela = "";
@@ -138,25 +127,24 @@ function modificaFooter (resposta) {
     
 }
 
-
-
-
 function encomendarDoUltimo(i){
 
     
     if( confirm('confirma a encomenda desssa camiseta?') === true){
         
-    console.log(lista[i]);
-    lista[i].author = nome;
-    delete lista[i].id;
-    console.log(lista);
+        console.log(lista[i]);
+        lista[i].author = nome;
+        delete lista[i].id;
+        
     
-    const postPromise = axios.post(url,lista[i]);
-    postPromise.then((resposta) => postarObjeto(resposta))
-    if(objeto.status === '422'){
-    postPromise.catch(postarErro())
-    }   
+        const postPromise = axios.post(url,lista[i]);
+        postPromise.then((resposta) => postarObjeto(resposta))
+    
+        if(objeto.status === '422'){
+            postPromise.catch(postarErro())
+        }   
     }
+
     else{
         alert('você pode escolher outro modelo, ou criar o seu!')
     }
