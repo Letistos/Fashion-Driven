@@ -87,7 +87,7 @@ function imgReferencia (link){
 
     const postPromise = axios.post(url,objeto);
     postPromise.then((resposta) => postarObjeto(resposta))
-    if(objeto.status === 422){
+    if(objeto.status === '422'){
     postPromise.catch(postarErro())
     
 }
@@ -96,7 +96,7 @@ function imgReferencia (link){
 
 function postarObjeto(resposta){
 
-    if(objeto.status===201 || objeto.status===403){
+    if(objeto.status==='201' || objeto.status==='403'){
         alert('pedido enviado')
     }
     const promise = axios.get(url);
@@ -122,7 +122,7 @@ function modificaFooter (resposta) {
     let pedidosTela = "";
     
     for(let i =0; i < resposta.length; i++){
-        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo()">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
+        pedidosTela += `<div class="pedidos-box" onclick="encomendarDoUltimo(resposta.image, resposta.material,resposta.neck, resposta.model, resposta.owner)">  <img class="camiseta-ultimo" alt="referência enviada pelo usuário" src=${resposta[i].image} /> <p><strong>Criador:</strong> ${resposta[i].owner}</p> </div>`;
     }
     let caixa = document.querySelector(".main-footer");
     caixa.innerHTML = pedidosTela;
@@ -132,16 +132,18 @@ function modificaFooter (resposta) {
 
 
 
-function encomendarDoUltimo(){
+function encomendarDoUltimo(img,tipoTecido,tipoGola,tipoModelo,dono){
 
-    for(i=0;i<promise.length;i++){
+    let objDoUltimos = {image: img, material:tipoTecido, neck:tipoGola , model:tipoModelo, owner:dono, author: nome}
+        
 
-    console.log(promise.data[i]);
+    const novaPromise = axios.post(url,objDoUltimos);
+    novaPromise.then((respostaPost) => novoPost(respostaPost))
+
+    if(objeto.status === '422'){
+    novaPromise.catch(postarErro())
     }
-
-//const postPromise = axios.post(url,objeto);
- //   postPromise.then((resposta) => postarObjeto(resposta))
-   // if(objeto.status === 422){
-    //postPromise.catch(postarErro())
-//}
+}
+function novoPost(postou){
+    console.log('oioi')
 }
