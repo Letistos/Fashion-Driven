@@ -147,22 +147,23 @@ footer{
     height:236.47px;
     border-radius:10px;
     background-color: #FFFFFF;
-    
+    margin-left: 40px;
     flex-direction: column;
     
 }
 .camiseta-ultimo{
-    width:auto;
     height:180px;
-    margin-bottom: 10px;
+    width:180px;
+    margin: 20px;
 
 }
 .main-footer{
-    width: 1500px;
-    padding-left: 150px;
-    padding-right: 150px;
-    justify-content: space-around;
-   
+    width: 1200px;
+    justify-content: space-between;
+   overflow: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 .texto-footer{
 

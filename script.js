@@ -61,7 +61,6 @@ function confirmaBotao(){
         let liberarBotao = document.querySelector('.botaoFinal')
         liberarBotao.removeAttribute('disabled');
         liberarBotao.classList.add('habilitado');
-        //objeto.owner = "abcd"
     }
   
 
@@ -79,12 +78,16 @@ function imgReferencia (link){
 
     const input = document.querySelector('.link').value;
     objeto.image = input;
+    objeto.owner = nome;
     
     console.log(objeto);
 
     const postPromise = axios.post(url,objeto);
-    postPromise.then((response)=>postarObjeto(response))
+    postPromise.then((response) => postarObjeto(response))
     postPromise.catch(postarErro())
+}
+function postarObjeto(){
+    console.log('oioi')
 }
 
 
@@ -113,6 +116,7 @@ function modificaFooter (resposta) {
     caixa.innerHTML = pedidosTela;
     console.log(caixa)
 }
+
 
 //processarResposta();
 
