@@ -81,17 +81,16 @@ function imgReferencia (link){
     const postPromise = axios.post(url,objeto);
     postPromise.then((resposta) => postarObjeto(resposta))
 
-    if(objeto.status === '422'){
-        postPromise.catch(postarErro())    
-    }
+    postPromise.catch((response) => postarErro(response));   
+    
 }
 
 function postarObjeto(resposta){  
     
     const promise = axios.get(url);
     promise.then((response) => modificaFooter(response.data))
-
-    alert('pedido enviado');
+    
+    alert('pedido enviado')
 }
 
 function adicionaNome(){
