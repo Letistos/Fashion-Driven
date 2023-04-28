@@ -79,18 +79,25 @@ function imgReferencia (link){
     objeto.image = input;
 
     const postPromise = axios.post(url,objeto);
-    postPromise.then((resposta) => postarObjeto(resposta))
+    postPromise.then((resposta) => {
+        console.log(resposta.status)
+       
+        if(resposta.status === 201){
+            postarObjeto(resposta)
+            alert('pedido confirmado com sucesso')
+        }  
+     
+    })
 
-    postPromise.catch((response) => postarErro(response));   
-    
-}
+    postPromise.catch((response) => postarErro(response));    
+}   
 
 function postarObjeto(resposta){  
     
     const promise = axios.get(url);
     promise.then((response) => modificaFooter(response.data))
+   
     
-    alert('pedido enviado')
 }
 
 function adicionaNome(){
